@@ -1,9 +1,11 @@
 <html>
 <head>
+	<meta charset = "UTF-8"> 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 	<title>Registration form CD</title>
 </head>
 <body>
-
+<div class="container">
 	<h1>Please fill out the form below to register with us!</h1>
 
 	{% with messages = get_flashed_messages() %}
@@ -24,6 +26,7 @@
 
 	 	<input type='submit' name='submit' value='Register'>
 	</form>
+</div>
 
 </body>
 </html>

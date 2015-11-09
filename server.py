@@ -16,17 +16,22 @@ def form():
 	session ['password'] = request.form ['password']
 	session ['pwordconfirm'] = request.form ['pwordconfirm']
 
-	if len(request.form['e-mail']) < 1
-	or len(request.form['first_name']) < 1 
-	or len(request.form['last_name']) < 1 
-	or len(request.form['password']) < 1 
-	or len(request.form['pwordconfirm']) < 1:
+	if len(request.form['e-mail']) < 1:
+		flash('Please fill out all fields!')
+	elif len(request.form['first_name']) < 1 :
+		flash('Please fill out all fields!')
+	elif len(request.form['last_name']) < 1 :
+		flash('Please fill out all fields!')
+	elif len(request.form['password']) < 1 :
+		flash('Please fill out all fields!')
+	elif len(request.form['pwordconfirm']) < 1 :
 		flash('Please fill out all fields!')
 	elif not EMAIL_REGEX.match(request.form['e-mail']):
 		flash('e-mail address not valid!')
-	elif len(request.form['password']) < 8
-	or len(request.form['pwordconfirm']) < 8:
-		flash('Passwords must match and be atleast 8 characters long.')
+	elif len(request.form['password']) < 8:
+		flash('Passwords must be atleast 8 characters long.')
+	elif len(request.form['pwordconfirm']) < 8:
+		flash('Passwords must be atleast 8 characters long.')
 	elif request.form['password'] != request.form['pwordconfirm']:
 		flash('Passwords do not match, please enter again!')
 	else:

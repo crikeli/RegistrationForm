@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Registration form CD</title>
+</head>
+<body>
+
+	<h1>Please fill out the form below to register with us!</h1>
+
+	{% with messages = get_flashed_messages() %}
+    	{% if messages %}
+      		{% for message in messages %}
+        		<p>{{message}}</p>
+      		{% endfor %}
+    	{% endif %}
+ 	{% endwith %}
+
+ 	<form action=/form method="POST">
+
+	 	Email:<input type="text" name= "e-mail">
+	 	First Name:<input type="text" name= "first_name">
+	 	Last Name:<input type="text" name= "last_name">
+	 	Password:<input type="text" name= "password">
+	 	Confirm Password:<input type="text" name= "pwordconfirm">
+
+	 	<input type='submit' name='submit' value='Register'>
+	</form>
+
+</body>
+</html>
